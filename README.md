@@ -5,4 +5,3 @@ The way it works is you tell it the questions that you want it to ask you and th
 
 Make Your Own Study Guide is licnesed under CC-BY-NC-SA 4.0 View it here: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en 
 Copyright (c) 2026 Elijah Corwin 
-All rights reserved
