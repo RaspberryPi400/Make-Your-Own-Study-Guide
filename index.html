@@ -1,18 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"
+  <meta charset="UTF-8">
   <title>Study Guide Creator</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding-top: 100px; }
+    .start-btn { padding: 15px 30px; font-size: 1.2rem; cursor: pointer; }
+    kbd { 
+      background-color: #eee; border-radius: 3px; border: 1px solid #b4b4b4;
+      box-shadow: 0 1px 1px rgba(0,0,0,.2); font-family: monospace; padding: 2px 4px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Press enter to start creating your own study guide</h1>
-  <a href="https://github.com/RaspberryPi400/Make-Your-Own-Study-Guide">View the code behind it here</a>
-  <p>Study Guide Creator is licensed under CC-BY-NC-SA 4.0 View it here:</p>
-  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC-BY-NC-SA 4.0</a>
-  <p>Copyright (c) 2025 Elijah Corwin</p>
-  <p>All rights reserved</p>
+
+  <h1>Study Guide Creator</h1>
+  <p>Press the <kbd>Enter</kbd> key to start the creator.</p>
+
+  <p><a href="https://github.com">View the code behind it here</a></p>
+  <p>Copyright (c) 2025 Elijah Corwin. All rights reserved.</p>
+
   <script>
-//ADD EVENTS AND STUFF HERE AND THE INTERACTION BETWEEN RENDER AND HERE
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        startStudyGuideCreator();
+      }
+    });
+
+    function startStudyGuideCreator() {
+      let score = 0;
+
+      let numInput = prompt("How many questions would you like to have?");
+      
+      if (numInput === null) return; 
+
+      let numberOfQuestions = parseInt(numInput);
+
+      if (isNaN(numberOfQuestions) || numberOfQuestions <= 0) {
+          alert("Error. You cannot have 0 questions. Please input a value above 0.");
+          return; // Exit function
+      }
+
+      let questionAnswerPairs = [];
+
+      for (let i = 0; i < numberOfQuestions; i++) {
+          let question = prompt(`What should question ${i + 1} be?`);
+          let answer = prompt(`What should the answer be to question ${i + 1}?`);
+          questionAnswerPairs.push({ question, answer });
+      }
+
+      alert("Time to answer!");
+
+      function shuffle(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+          }
+      }
+      shuffle(questionAnswerPairs);
+
+      for (let pair of questionAnswerPairs) {
+          let userAnswer = prompt(`${pair.question}\nYour answer:`);
+          
+          if (userAnswer === pair.answer) {
+              alert("You got it correct!");
+              score++;
+          } else {
+              alert(`You got it wrong!\nThe correct answer is: ${pair.answer}`);
+          }
+      }
+
+      let questionWord = (score === 1) ? "question" : "questions";
+      let finalMessage = `You have answered ${score} ${questionWord} correctly.`;
+
+      alert(finalMessage);
+      console.log("Copyright (c) 2025 Elijah Corwin");
+    }
   </script>
 </body>
 </html>
