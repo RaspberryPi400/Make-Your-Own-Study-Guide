@@ -2,3 +2,4 @@ title: Make Your Own Study Guide
 description: You can use this website to make your own study guide! Tell it the questions to ask, the answers to those questions, and then you can answer them! It will give you a score at the end.
 email: raspberrypi500@yahoo.com
 baseurl: https://raspberrypi400.github.io/Make-Your-Own-Study-Guide/
+theme: minima
