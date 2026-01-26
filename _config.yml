@@ -1,4 +1,5 @@
 title: Study Guide Creator
 description: You can use this website to make your own study guide!
-baseurl: /Make-Your-Own-Study-Guide
+baseurl: "/Make-Your-Own-Study-Guide"
+theme: jekyll-theme-cayman
 show_downloads: false
