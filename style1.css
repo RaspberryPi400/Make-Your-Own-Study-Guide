@@ -6,3 +6,7 @@ p {
 h1 {
   text-align: center;
 }
+
+kbd {
+  box-shadow: 2px 2px;
+}
